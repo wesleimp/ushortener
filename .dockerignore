@@ -1,0 +1,15 @@
+.git/
+.elixir_ls/
+deps/
+_build/
+apps/ushortener_web/assets/node_modules/
+.git/**/*
+.elixir_ls/**/*
+deps/**/*
+_build/**/*
+apps/ushortener_web/assets/node_modules/**/*
+README.md
+Dockerfile
+docker-compose.yml
+.gitignore
+docker_run
