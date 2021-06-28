@@ -13,8 +13,8 @@ defmodule UshortenerWeb.Router do
   scope "/", UshortenerWeb do
     pipe_through :browser
 
-    # get "/:short_code", LinkController, :show
+    get "/:short_code", LinksController, :show
 
-    live "/", LinkLive, :index
+    live "/", LinksLive, :index
   end
 end
