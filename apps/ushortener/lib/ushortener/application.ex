@@ -5,8 +5,11 @@ defmodule Ushortener.Application do
 
   use Application
 
+  @topologies Application.compile_env(:libcluster, :topologies)
+
   def start(_type, _args) do
     children = [
+      {Cluster.Supervisor, [@topologies, [name: Ushortener.ClusterSupervisor]]},
       Ushortener.Repo,
       {Phoenix.PubSub, name: Ushortener.PubSub, adapter: Phoenix.PubSub.PG2}
     ]
