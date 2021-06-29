@@ -10,7 +10,7 @@ defmodule UshortenerWeb.RecentLinksComponent do
       <ul class="overflow-y-hidden">
         <%= for link <- @recent do %>
           <li class="leading-8 py-2 float-left mr-4">
-            <a class="p-2 rounded-md bg-green-500 hover:bg-green-400 text-gray-200 shadow"
+            <a class="p-2 text-black rounded-md bg-yellow-500 hover:bg-yellow-400 text-gray-200 shadow"
               href="/<%= link.short_code %>"
               target="_blank">
               <%= link.short_code %>

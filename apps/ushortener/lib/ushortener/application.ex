@@ -7,12 +7,8 @@ defmodule Ushortener.Application do
 
   def start(_type, _args) do
     children = [
-      # Start the Ecto repository
       Ushortener.Repo,
-      # Start the PubSub system
       {Phoenix.PubSub, name: Ushortener.PubSub}
-      # Start a worker by calling: Ushortener.Worker.start_link(arg)
-      # {Ushortener.Worker, arg}
     ]
 
     Supervisor.start_link(children, strategy: :one_for_one, name: Ushortener.Supervisor)

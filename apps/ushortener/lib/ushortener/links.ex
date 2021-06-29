@@ -21,6 +21,14 @@ defmodule Ushortener.Links do
     %Link{}
     |> Link.changeset(attrs)
     |> Repo.insert()
+    |> notify_subscribers()
+  end
+
+  defp notify_subscribers({:error, cause}), do: {:error, cause}
+
+  defp notify_subscribers({:ok, link}) do
+    Phoenix.PubSub.broadcast(Ushortener.PubSub, "links", {:created, link})
+    {:ok, link}
   end
 
   @doc """
